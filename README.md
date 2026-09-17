@@ -6,5 +6,7 @@ Open `index.html` in a browser. Click the bell to open the notifications panel.
 
 ## Known bug
 
-On narrow (mobile-width) viewports, the notifications panel is clipped off the right
-edge of the screen and cannot be fully seen or interacted with. Try it at ~375px width.
+Clicking the bell doesn't show anything — the notifications panel is invisible. This
+happens at **every viewport width**, not just narrow/mobile ones (the toolbar it sits in
+is sized to its own content, so the clipping isn't viewport-dependent). The profile menu
+(person icon) has the same problem.

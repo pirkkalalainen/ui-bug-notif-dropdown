@@ -10,27 +10,44 @@
   <header class="topbar">
     <div class="brand">Dash</div>
     <div class="toolbar">
+      <div class="ticker">
+        <span class="ticker-text">3 new notifications&nbsp;&nbsp;•&nbsp;&nbsp;Synced 2 min ago&nbsp;&nbsp;•&nbsp;&nbsp;3 new notifications&nbsp;&nbsp;•&nbsp;&nbsp;Synced 2 min ago</span>
+      </div>
       <nav class="nav-actions">
-        <button id="notif-toggle" class="icon-btn" aria-haspopup="true">
-          🔔
-          <span class="badge">3</span>
-        </button>
-        <div id="notif-panel" class="notif-panel" hidden>
-          <div class="notif-panel-header">Notifications</div>
-          <ul class="notif-list">
-            <li class="notif-item">
-              <strong>Payment received</strong>
-              <span>Invoice #1042 was paid by Acme Oy.</span>
-            </li>
-            <li class="notif-item">
-              <strong>New comment</strong>
-              <span>Liisa commented on "Q3 roadmap".</span>
-            </li>
-            <li class="notif-item">
-              <strong>Deploy finished</strong>
-              <span>Production deploy #88 completed successfully.</span>
-            </li>
-          </ul>
+        <div class="icon-menu">
+          <button id="profile-toggle" class="icon-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="profile-panel">
+            👤
+          </button>
+          <div id="profile-panel" class="notif-panel" hidden>
+            <div class="notif-panel-header">Account</div>
+            <ul class="notif-list">
+              <li class="notif-item"><strong>Settings</strong></li>
+              <li class="notif-item"><strong>Sign out</strong></li>
+            </ul>
+          </div>
+        </div>
+        <div class="icon-menu">
+          <button id="notif-toggle" class="icon-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="notif-panel">
+            🔔
+            <span class="badge">3</span>
+          </button>
+          <div id="notif-panel" class="notif-panel" hidden>
+            <div class="notif-panel-header">Notifications</div>
+            <ul class="notif-list">
+              <li class="notif-item">
+                <strong>Payment received</strong>
+                <span>Invoice #1042 was paid by Acme Oy.</span>
+              </li>
+              <li class="notif-item">
+                <strong>New comment</strong>
+                <span>Liisa commented on "Q3 roadmap".</span>
+              </li>
+              <li class="notif-item">
+                <strong>Deploy finished</strong>
+                <span>Production deploy #88 completed successfully.</span>
+              </li>
+            </ul>
+          </div>
         </div>
       </nav>
     </div>

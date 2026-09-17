@@ -22,20 +22,35 @@ body {
   font-size: 18px;
 }
 
-/* Decorative toolbar chip around the notification button — rounded corners
-   over a gradient background. The overflow:hidden is here for the corner
-   mask, but it also clips any descendant that visually needs to escape it. */
+/* Status pill: ticker text + icon buttons on a rounded gradient background.
+   overflow:hidden does two jobs here — crops the oversized decorative glow
+   (::before) to the pill's rounded corners, AND clips the scrolling ticker
+   text to the pill's edges (the ticker text is wider than its box and
+   slides through via animation — nothing local to .ticker clips it, this
+   is the only thing clipping it). Removing overflow:hidden without
+   accounting for both breaks something visibly, not just subtly.
+   transform:translateZ(0) is a GPU-acceleration hint so the :active press
+   effect below stays smooth — it also makes this element a containing
+   block for any fixed/absolute-positioned descendant, including anything
+   reparented here later. */
 .toolbar {
   position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   overflow: hidden;
-  border-radius: 10px;
-  padding: 2px;
+  border-radius: 999px;
+  padding: 4px 12px;
+  min-width: 220px;
   background: linear-gradient(135deg, #eef1ff 0%, #f7f8fc 100%);
+  transform: translateZ(0);
+  transition: transform 0.15s ease;
 }
 
-/* Soft decorative glow, intentionally oversized — the toolbar's
-   overflow:hidden crops it down to a subtle tint inside the rounded
-   corners. Relies on that clipping to look right. */
+.toolbar:active {
+  transform: translateZ(0) scale(0.98);
+}
+
 .toolbar::before {
   content: "";
   position: absolute;
@@ -53,7 +68,36 @@ body {
   z-index: 1;
 }
 
+.ticker {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 16px;
+  position: relative;
+  overflow: visible;
+}
+
+.ticker-text {
+  position: absolute;
+  left: 100%;
+  top: 0;
+  white-space: nowrap;
+  font-size: 11px;
+  color: #6b7280;
+  animation: ticker-scroll 10s linear infinite;
+}
+
+@keyframes ticker-scroll {
+  from { left: 100%; }
+  to { left: -220%; }
+}
+
 .nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.icon-menu {
   position: relative;
 }
 
