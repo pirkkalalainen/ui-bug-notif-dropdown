@@ -22,6 +22,37 @@ body {
   font-size: 18px;
 }
 
+/* Decorative toolbar chip around the notification button — rounded corners
+   over a gradient background. The overflow:hidden is here for the corner
+   mask, but it also clips any descendant that visually needs to escape it. */
+.toolbar {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  padding: 2px;
+  background: linear-gradient(135deg, #eef1ff 0%, #f7f8fc 100%);
+}
+
+/* Soft decorative glow, intentionally oversized — the toolbar's
+   overflow:hidden crops it down to a subtle tint inside the rounded
+   corners. Relies on that clipping to look right. */
+.toolbar::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.35), transparent 70%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.toolbar > * {
+  position: relative;
+  z-index: 1;
+}
+
 .nav-actions {
   position: relative;
 }
@@ -47,14 +78,10 @@ body {
   border-radius: 999px;
 }
 
-/* Bug: fixed 320px panel anchored with a negative right offset from its
-   trigger button. On narrow viewports the button sits close to the screen
-   edge already, so this pushes the panel further right and off-screen —
-   it gets clipped by the page's overflow-x:hidden instead of reflowing. */
 .notif-panel {
   position: absolute;
   top: 100%;
-  right: -40px;
+  right: 0;
   width: 320px;
   margin-top: 8px;
   background: #ffffff;
