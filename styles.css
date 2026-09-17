@@ -79,16 +79,13 @@ body {
 }
 
 .notif-panel {
-  position: absolute;
-  top: 100%;
-  right: 0;
+  position: fixed;
   width: 320px;
-  margin-top: 8px;
   background: #ffffff;
   border: 1px solid #e2e4e8;
   border-radius: 8px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  z-index: 10;
+  z-index: 1000;
 }
 
 .notif-panel[hidden] { display: none; }
