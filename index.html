@@ -11,30 +11,31 @@
     <div class="brand">Dash</div>
     <div class="toolbar">
       <nav class="nav-actions">
-        <button id="notif-toggle" class="icon-btn" aria-haspopup="true">
+        <button id="notif-toggle" class="icon-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="notif-panel">
           🔔
           <span class="badge">3</span>
         </button>
-        <div id="notif-panel" class="notif-panel" hidden>
-          <div class="notif-panel-header">Notifications</div>
-          <ul class="notif-list">
-            <li class="notif-item">
-              <strong>Payment received</strong>
-              <span>Invoice #1042 was paid by Acme Oy.</span>
-            </li>
-            <li class="notif-item">
-              <strong>New comment</strong>
-              <span>Liisa commented on "Q3 roadmap".</span>
-            </li>
-            <li class="notif-item">
-              <strong>Deploy finished</strong>
-              <span>Production deploy #88 completed successfully.</span>
-            </li>
-          </ul>
-        </div>
       </nav>
     </div>
   </header>
+
+  <div id="notif-panel" class="notif-panel" hidden>
+    <div class="notif-panel-header">Notifications</div>
+    <ul class="notif-list">
+      <li class="notif-item">
+        <strong>Payment received</strong>
+        <span>Invoice #1042 was paid by Acme Oy.</span>
+      </li>
+      <li class="notif-item">
+        <strong>New comment</strong>
+        <span>Liisa commented on "Q3 roadmap".</span>
+      </li>
+      <li class="notif-item">
+        <strong>Deploy finished</strong>
+        <span>Production deploy #88 completed successfully.</span>
+      </li>
+    </ul>
+  </div>
 
   <main class="content">
     <h1>Overview</h1>
