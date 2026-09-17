@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dash — Notifications Demo</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">Dash</div>
+    <nav class="nav-actions">
+      <button id="notif-toggle" class="icon-btn" aria-haspopup="true">
+        🔔
+        <span class="badge">3</span>
+      </button>
+      <div id="notif-panel" class="notif-panel" hidden>
+        <div class="notif-panel-header">Notifications</div>
+        <ul class="notif-list">
+          <li class="notif-item">
+            <strong>Payment received</strong>
+            <span>Invoice #1042 was paid by Acme Oy.</span>
+          </li>
+          <li class="notif-item">
+            <strong>New comment</strong>
+            <span>Liisa commented on "Q3 roadmap".</span>
+          </li>
+          <li class="notif-item">
+            <strong>Deploy finished</strong>
+            <span>Production deploy #88 completed successfully.</span>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main class="content">
+    <h1>Overview</h1>
+    <p>Welcome back. Here's what happened while you were away.</p>
+    <section class="card">
+      <h2>Recent activity</h2>
+      <p>No new activity to show right now.</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

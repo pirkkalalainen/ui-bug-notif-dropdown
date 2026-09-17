@@ -1,0 +1,108 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f4f5f7;
+  color: #1a1a1a;
+  overflow-x: hidden;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: #ffffff;
+  border-bottom: 1px solid #e2e4e8;
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.nav-actions {
+  position: relative;
+}
+
+.icon-btn {
+  position: relative;
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #e0392c;
+  color: #fff;
+  font-size: 10px;
+  line-height: 1;
+  padding: 2px 5px;
+  border-radius: 999px;
+}
+
+/* Bug: fixed 320px panel anchored with a negative right offset from its
+   trigger button. On narrow viewports the button sits close to the screen
+   edge already, so this pushes the panel further right and off-screen —
+   it gets clipped by the page's overflow-x:hidden instead of reflowing. */
+.notif-panel {
+  position: absolute;
+  top: 100%;
+  right: -40px;
+  width: 320px;
+  margin-top: 8px;
+  background: #ffffff;
+  border: 1px solid #e2e4e8;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  z-index: 10;
+}
+
+.notif-panel[hidden] { display: none; }
+
+.notif-panel-header {
+  padding: 12px 16px;
+  font-weight: 600;
+  border-bottom: 1px solid #e2e4e8;
+}
+
+.notif-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.notif-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 16px;
+  border-bottom: 1px solid #f0f1f3;
+  font-size: 13px;
+}
+
+.notif-item span {
+  color: #6b7280;
+}
+
+.content {
+  padding: 24px 16px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #e2e4e8;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 16px;
+}
