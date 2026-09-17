@@ -123,11 +123,12 @@ body {
 }
 
 .notif-panel {
-  position: absolute;
-  top: 100%;
-  right: 0;
+  /* Positioned via JS (fixed, computed from the toggle button's rect) —
+     the panel is reparented to <body> so it escapes .toolbar's
+     overflow:hidden clipping and its transform:translateZ(0) containing
+     block (which would otherwise trap position:fixed too). */
+  position: fixed;
   width: 320px;
-  margin-top: 8px;
   background: #ffffff;
   border: 1px solid #e2e4e8;
   border-radius: 8px;
