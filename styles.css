@@ -27,7 +27,7 @@ body {
    mask, but it also clips any descendant that visually needs to escape it. */
 .toolbar {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   border-radius: 10px;
   padding: 2px;
   background: linear-gradient(135deg, #eef1ff 0%, #f7f8fc 100%);
