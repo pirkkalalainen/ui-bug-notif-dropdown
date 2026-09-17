@@ -79,11 +79,8 @@ body {
 }
 
 .notif-panel {
-  position: absolute;
-  top: 100%;
-  right: 0;
+  position: fixed;
   width: 320px;
-  margin-top: 8px;
   background: #ffffff;
   border: 1px solid #e2e4e8;
   border-radius: 8px;
