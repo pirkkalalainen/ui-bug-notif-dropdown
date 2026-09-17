@@ -95,9 +95,6 @@ body {
   gap: 4px;
 }
 
-.icon-menu {
-  position: relative;
-}
 
 .icon-btn {
   position: relative;
@@ -120,6 +117,11 @@ body {
   border-radius: 999px;
 }
 
+/* Its containing block is .toolbar (nearest positioned ancestor — .icon-menu
+   is intentionally not position:relative), not the individual button wrapper.
+   right:0/top:100% here resolve against .toolbar's own box, so both panels
+   (bell and profile) land in the same spot unless a fix positions each one
+   relative to its own trigger button specifically. */
 .notif-panel {
   position: absolute;
   top: 100%;
