@@ -23,12 +23,10 @@ body {
 }
 
 /* Status pill: ticker text + icon buttons on a rounded gradient background.
-   overflow:hidden does two jobs here — crops the oversized decorative glow
-   (::before) to the pill's rounded corners, AND clips the scrolling ticker
-   text to the pill's edges (the ticker text is wider than its box and
-   slides through via animation — nothing local to .ticker clips it, this
-   is the only thing clipping it). Removing overflow:hidden without
-   accounting for both breaks something visibly, not just subtly.
+   overflow:hidden crops the oversized decorative glow (::before) to the
+   pill's rounded corners — removing it without accounting for the glow
+   breaks something visibly, not just subtly. (.ticker clips its own
+   scrolling text locally, independent of this.)
    transform:translateZ(0) is a GPU-acceleration hint so the :active press
    effect below stays smooth — it also makes this element a containing
    block for any fixed/absolute-positioned descendant, including anything
@@ -73,7 +71,7 @@ body {
   min-width: 0;
   height: 16px;
   position: relative;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .ticker-text {
