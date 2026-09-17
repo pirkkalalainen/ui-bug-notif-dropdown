@@ -23,34 +23,18 @@ body {
 }
 
 /* Decorative toolbar chip around the notification button — rounded corners
-   over a gradient background. The overflow:hidden is here for the corner
-   mask, but it also clips any descendant that visually needs to escape it. */
+   over a gradient background. The glow is baked into the background itself
+   (not a separately-positioned pseudo-element) so it's clipped to the
+   rounded corners by border-radius alone, with no overflow:hidden needed —
+   that would also clip the notification dropdown, which must render outside
+   these bounds. */
 .toolbar {
   position: relative;
-  overflow: hidden;
   border-radius: 10px;
   padding: 2px;
-  background: linear-gradient(135deg, #eef1ff 0%, #f7f8fc 100%);
-}
-
-/* Soft decorative glow, intentionally oversized — the toolbar's
-   overflow:hidden crops it down to a subtle tint inside the rounded
-   corners. Relies on that clipping to look right. */
-.toolbar::before {
-  content: "";
-  position: absolute;
-  top: -20px;
-  left: -20px;
-  width: 80px;
-  height: 80px;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.35), transparent 70%);
-  z-index: 0;
-  pointer-events: none;
-}
-
-.toolbar > * {
-  position: relative;
-  z-index: 1;
+  background:
+    radial-gradient(circle 40px at 20px 20px, rgba(99, 102, 241, 0.35), transparent 70%),
+    linear-gradient(135deg, #eef1ff 0%, #f7f8fc 100%);
 }
 
 .nav-actions {
