@@ -117,17 +117,14 @@ body {
   border-radius: 999px;
 }
 
-/* Its containing block is .toolbar (nearest positioned ancestor — .icon-menu
-   is intentionally not position:relative), not the individual button wrapper.
-   right:0/top:100% here resolve against .toolbar's own box, so both panels
-   (bell and profile) land in the same spot unless a fix positions each one
-   relative to its own trigger button specifically. */
+/* Reparented to <body> at setup (script.js) so it's no longer a DOM
+   descendant of .toolbar — otherwise .toolbar's overflow:hidden (needed to
+   crop the decorative glow to the pill shape) clips it entirely, regardless
+   of position value. top/left are set per-button in JS via
+   getBoundingClientRect() right before it's shown. */
 .notif-panel {
-  position: absolute;
-  top: 100%;
-  right: 0;
+  position: fixed;
   width: 320px;
-  margin-top: 8px;
   background: #ffffff;
   border: 1px solid #e2e4e8;
   border-radius: 8px;
